@@ -1,0 +1,75 @@
+<h2>技术实现方案对比</h2>
+<p class="subtitle">三种桌面应用开发方案，选择最适合你的</p>
+
+<div class="options">
+  <div class="option" data-choice="pyqt5" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>⭐ PyQt5（推荐）</h3>
+      <p><strong>语言：</strong>Python + PyQt5</p>
+      <div style="margin:10px 0;">
+        <div class="pros-cons" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;">
+          <div style="background:#e8f5e9;padding:8px;border-radius:8px;font-size:12px;">
+            ✅ Python生态丰富，IMAP库成熟<br>
+            ✅ AI SDK接入简单（一行代码）<br>
+            ✅ 开发速度快，2-3周可完成<br>
+            ✅ PyInstaller一键打包EXE<br>
+            ✅ 与现有config.py无缝衔接
+          </div>
+          <div style="background:#ffebee;padding:8px;border-radius:8px;font-size:12px;">
+            ❌ 打包体积较大（~80MB）<br>
+            ❌ 启动速度稍慢（~2秒）
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="electron" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Electron</h3>
+      <p><strong>语言：</strong>Node.js + React/Vue</p>
+      <div style="margin:10px 0;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;">
+          <div style="background:#e8f5e9;padding:8px;border-radius:8px;font-size:12px;">
+            ✅ UI最灵活，可做出极精美界面<br>
+            ✅ 前端生态丰富
+          </div>
+          <div style="background:#ffebee;padding:8px;border-radius:8px;font-size:12px;">
+            ❌ 打包体积极大（~200MB）<br>
+            ❌ 内存占用高（~200MB+）<br>
+            ❌ IMAP需换语言或起子进程<br>
+            ❌ 开发周期长
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="tauri" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Tauri + Python后端</h3>
+      <p><strong>语言：</strong>Rust + Vue/React + Python</p>
+      <div style="margin:10px 0;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;">
+          <div style="background:#e8f5e9;padding:8px;border-radius:8px;font-size:12px;">
+            ✅ 体积最小（~15MB）<br>
+            ✅ 性能最好
+          </div>
+          <div style="background:#ffebee;padding:8px;border-radius:8px;font-size:12px;">
+            ❌ 需要学Rust<br>
+            ❌ 开发复杂度最高<br>
+            ❌ 开发周期最长（6-8周）
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:20px;padding:16px;background:linear-gradient(135deg,#667eea22,#764ba222);border-radius:12px;border-left:4px solid #667eea;">
+  <strong style="color:#667eea;">💡 我的推荐：方案A（PyQt5）</strong>
+  <p style="margin-top:8px;color:#555;font-size:14px;">你已有Python基础代码，AI SDK用Python最简单，IMAP库最成熟，开发速度最快，适合快速验证和上线。</p>
+</div>

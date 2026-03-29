@@ -1,0 +1,93 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec.bak
+build/
+dist/
+
+# 虚拟环境
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 日志
+*.log
+logs/
+*.log.*
+
+# 数据库
+*.db
+*.sqlite
+*.sqlite3
+
+# 配置文件（包含敏感信息）
+config/local.ini
+.env
+*.env
+
+# 用户数据
+.mail-assistant/
+.foxmail-assistant/
+
+# 测试
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# 临时文件
+*.tmp
+*.bak
+*.swp
+cache/
+temp/
+tmp/
+
+# 操作系统
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# 打包文件
+*.zip
+*.tar.gz
+*.rar
+
+# Node modules（如果有前端部分）
+node_modules/
+package-lock.json
+
+# 编译输出
+*.pyc
+*.pyo

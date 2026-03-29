@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foxmail邮件智能助手 - 图标设计预览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        .preview-section {
+            background: white;
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            color: #764ba2;
+            border-left: 5px solid #764ba2;
+            padding-left: 16px;
+        }
+
+        .icon-display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            padding: 40px 0;
+        }
+
+        .icon-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .icon-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #666;
+            text-align: center;
+        }
+
+        .icon-size {
+            font-size: 14px;
+            color: #999;
+        }
+
+        /* SVG图标样式 */
+        .icon-svg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 22%;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* 大图标 */
+        .icon-256 {
+            width: 256px;
+            height: 256px;
+        }
+
+        .icon-128 {
+            width: 128px;
+            height: 128px;
+        }
+
+        .icon-64 {
+            width: 64px;
+            height: 64px;
+        }
+
+        .icon-32 {
+            width: 32px;
+            height: 32px;
+        }
+
+        .icon-16 {
+            width: 16px;
+            height: 16px;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .color-swatch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .color-box {
+            width: 120px;
+            height: 120px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .color-info {
+            text-align: center;
+        }
+
+        .color-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .color-code {
+            font-size: 12px;
+            font-family: 'Courier New', monospace;
+            color: #999;
+        }
+
+        .design-notes {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 32px;
+            margin-top: 40px;
+        }
+
+        .design-notes h3 {
+            font-size: 20px;
+            color: #764ba2;
+            margin-bottom: 16px;
+        }
+
+        .design-notes ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .design-notes li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .design-notes li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #764ba2;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .grid-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .grid-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 16px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .grid-item .icon-svg {
+            background: white;
+            box-shadow: none;
+        }
+
+        .grid-item .icon-label {
+            color: white;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            color: white;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 Foxmail邮件智能助手</h1>
+            <p class="subtitle">App图标设计方案 - 智能信封主题</p>
+        </header>
+
+        <!-- 主要图标展示 -->
+        <div class="preview-section">
+            <h2 class="section-title">📐 图标尺寸预览</h2>
+            <div class="icon-display">
+                <!-- 256x256 -->
+                <div class="icon-container">
+                    <div class="icon-svg icon-256" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 22%; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);">
+                        <!-- 信封 -->
+                        <div style="width: 60%; height: 50%; position: relative;">
+                            <div style="width: 100%; height: 100%; background: rgba(255,255,255,0.15); border: 3px solid rgba(255,255,255,0.9); border-radius: 8px; position: relative;">
+                                <!-- 信封盖子 -->
+                                <div style="position: absolute; top: 0; left: 0; right: 0; height: 60%; background: rgba(255,255,255,0.2); clip-path: polygon(0 100%, 50% 30%, 100% 100%);"></div>
+                            </div>
+                        </div>
+                        <!-- 神经网络 -->
+                        <div style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); width: 40%; height: 30%;">
+                            <svg viewBox="0 0 100 60" style="width: 100%; height: 100%;">
+                                <line x1="10" y1="10" x2="30" y2="30" stroke="white" stroke-width="2" opacity="0.7"/>
+                                <line x1="10" y1="50" x2="30" y2="30" stroke="white" stroke-width="2" opacity="0.7"/>
+                                <line x1="30" y1="30" x2="70" y2="30" stroke="white" stroke-width="2" opacity="0.7"/>
+                                <line x1="70" y1="30" x2="90" y2="10" stroke="white" stroke-width="2" opacity="0.7"/>
+                                <line x1="70" y1="30" x2="90" y2="50" stroke="white" stroke-width="2" opacity="0.7"/>
+                                <circle cx="10" cy="10" r="4" fill="white"/>
+                                <circle cx="10" cy="50" r="4" fill="white"/>
+                                <circle cx="30" cy="30" r="5" fill="white"/>
+                                <circle cx="70" cy="30" r="5" fill="white"/>
+                                <circle cx="90" cy="10" r="6" fill="white"/>
+                                <circle cx="90" cy="50" r="4" fill="white"/>
+                            </svg>
+                        </div>
+                        <!-- 待办徽章 -->
+                        <div style="position: absolute; bottom: 15%; right: 15%; width: 25%; height: 25%; background: linear-gradient(135deg, #FF6B6B 0%, #EE5A52 100%); border-radius: 50%; border: 3px solid white; display: flex; align-items: center; justify-content: center;">
+                            <svg viewBox="0 0 24 24" style="width: 60%; height: 60%;">
+                                <path d="M 6 12 L 10 16 L 18 8" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="icon-label">应用主图标</div>
+                        <div class="icon-size">256 × 256</div>
+                    </div>
+                </div>
+
+                <!-- 128x128 -->
+                <div class="icon-container">
+                    <div class="icon-svg icon-128" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 22%; box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);"></div>
+                    <div>
+                        <div class="icon-label">桌面快捷方式</div>
+                        <div class="icon-size">128 × 128</div>
+                    </div>
+                </div>
+
+                <!-- 64x64 -->
+                <div class="icon-container">
+                    <div class="icon-svg icon-64" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 22%; box-shadow: 0 6px 18px rgba(102, 126, 234, 0.4);"></div>
+                    <div>
+                        <div class="icon-label">任务栏</div>
+                        <div class="icon-size">64 × 64</div>
+                    </div>
+                </div>
+
+                <!-- 32x32 -->
+                <div class="icon-container">
+                    <div class="icon-svg icon-32" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 22%; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);"></div>
+                    <div>
+                        <div class="icon-label">系统托盘</div>
+                        <div class="icon-size">32 × 32</div>
+                    </div>
+                </div>
+
+                <!-- 16x16 -->
+                <div class="icon-container">
+                    <div class="icon-svg icon-16" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 22%;"></div>
+                    <div>
+                        <div class="icon-label">窗口标题</div>
+                        <div class="icon-size">16 × 16</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 配色方案 -->
+        <div class="preview-section">
+            <h2 class="section-title">🎨 配色方案</h2>
+            <div class="color-palette">
+                <div class="color-swatch">
+                    <div class="color-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                    <div class="color-info">
+                        <div class="color-name">主色渐变</div>
+                        <div class="color-code">#667eea → #764ba2</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #FFFFFF;"></div>
+                    <div class="color-info">
+                        <div class="color-name">图标元素</div>
+                        <div class="color-code">#FFFFFF</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: linear-gradient(135deg, #FF6B6B 0%, #EE5A52 100%);"></div>
+                    <div class="color-info">
+                        <div class="color-name">待办徽章</div>
+                        <div class="color-code">#FF6B6B → #EE5A52</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: rgba(102, 126, 234, 0.3);"></div>
+                    <div class="color-info">
+                        <div class="color-name">阴影色</div>
+                        <div class="color-code">rgba(102, 126, 234, 0.3)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 设计说明 -->
+        <div class="preview-section">
+            <h2 class="section-title">💡 设计理念</h2>
+            <div class="design-notes">
+                <h3>视觉元素解读</h3>
+                <ul>
+                    <li><strong>信封主体</strong>：邮件的通用符号，用户一眼就能理解应用功能</li>
+                    <li><strong>神经网络图案</strong>：AI智能处理的象征，传达科技感和智能化</li>
+                    <li><strong>待办徽章</strong>：突出核心功能——自动提取待办事项</li>
+                    <li><strong>紫色渐变</strong>：与应用UI主题色保持一致，强化品牌识别</li>
+                    <li><strong>圆角设计</strong>：友好亲和的视觉语言，符合现代设计趋势</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 应用场景 -->
+        <div class="preview-section">
+            <h2 class="section-title">🖥️ 应用场景</h2>
+            <div class="grid-demo">
+                <div class="grid-item">
+                    <div class="icon-svg icon-64" style="background: white; border-radius: 22%;"></div>
+                    <div class="icon-label">Windows任务栏</div>
+                </div>
+                <div class="grid-item">
+                    <div class="icon-svg icon-48" style="background: white; border-radius: 22%; width: 48px; height: 48px;"></div>
+                    <div class="icon-label">桌面快捷方式</div>
+                </div>
+                <div class="grid-item">
+                    <div class="icon-svg icon-32" style="background: white; border-radius: 22%;"></div>
+                    <div class="icon-label">系统托盘</div>
+                </div>
+                <div class="grid-item">
+                    <div class="icon-svg icon-16" style="background: white; border-radius: 22%;"></div>
+                    <div class="icon-label">窗口标题栏</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>设计: UI设计师代理 | 项目: Foxmail邮件智能助手</p>
+            <p style="margin-top: 8px; font-size: 14px;">SVG源文件: assets/icons/app-icon-concept.svg</p>
+        </footer>
+    </div>
+</body>
+</html>

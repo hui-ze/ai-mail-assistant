@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <!-- 
+    Foxmail邮件智能助手 - App图标设计方案A
+    
+    设计说明:
+    - 主形状: 圆角正方形背景
+    - 主体: 信封符号 + AI神经网络图案
+    - 徽章: 待办事项标记（右下角）
+    - 配色: 紫色渐变 #667eea → #764ba2
+    
+    作者: UI设计师代理
+    日期: 2026-03-29
+    版本: v1.0
+  -->
+  
+  <!-- 定义渐变和滤镜 -->
+  <defs>
+    <!-- 主背景渐变 -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 信封内部渐变（半透明白色） -->
+    <linearGradient id="envelopeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.1" />
+    </linearGradient>
+    
+    <!-- 阴影滤镜 -->
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="40" flood-color="#667eea" flood-opacity="0.3"/>
+    </filter>
+    
+    <!-- 发光效果 -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- 徽章渐变 -->
+    <linearGradient id="badgeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EE5A52;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 主背景 - 圆角正方形 -->
+  <rect 
+    x="80" y="80" 
+    width="864" height="864" 
+    rx="192" ry="192"
+    fill="url(#mainGradient)"
+    filter="url(#dropShadow)"
+  />
+  
+  <!-- 信封主体 - 简化的信封形状 -->
+  <g transform="translate(512, 450)">
+    <!-- 信封背景 -->
+    <path 
+      d="M -280 -120 L 280 -120 L 280 200 L -280 200 Z" 
+      fill="url(#envelopeGradient)"
+      stroke="#ffffff"
+      stroke-width="8"
+      stroke-opacity="0.9"
+    />
+    
+    <!-- 信封盖子（向下） -->
+    <path 
+      d="M -280 -120 L 0 60 L 280 -120 L 280 -40 L 0 140 L -280 -40 Z" 
+      fill="#ffffff"
+      fill-opacity="0.15"
+      stroke="#ffffff"
+      stroke-width="8"
+      stroke-opacity="0.9"
+    />
+  </g>
+  
+  <!-- AI神经网络图案 - 节点和连线 -->
+  <g transform="translate(512, 420)" filter="url(#glow)">
+    <!-- 连接线 -->
+    <line x1="-120" y1="-60" x2="-40" y2="0" stroke="#ffffff" stroke-width="4" stroke-opacity="0.6"/>
+    <line x1="-120" y1="60" x2="-40" y2="0" stroke="#ffffff" stroke-width="4" stroke-opacity="0.6"/>
+    <line x1="-40" y1="0" x2="40" y2="-40" stroke="#ffffff" stroke-width="4" stroke-opacity="0.6"/>
+    <line x1="-40" y1="0" x2="40" y2="40" stroke="#ffffff" stroke-width="4" stroke-opacity="0.6"/>
+    <line x1="40" y1="-40" x2="120" y2="0" stroke="#ffffff" stroke-width="4" stroke-opacity="0.6"/>
+    <line x1="40" y1="40" x2="120" y2="0" stroke="#ffffff" stroke-width="4" stroke-opacity="0.6"/>
+    
+    <!-- 节点 -->
+    <circle cx="-120" cy="-60" r="16" fill="#ffffff" fill-opacity="0.9"/>
+    <circle cx="-120" cy="60" r="16" fill="#ffffff" fill-opacity="0.9"/>
+    <circle cx="-40" cy="0" r="20" fill="#ffffff" fill-opacity="0.95"/>
+    <circle cx="40" cy="-40" r="16" fill="#ffffff" fill-opacity="0.9"/>
+    <circle cx="40" cy="40" r="16" fill="#ffffff" fill-opacity="0.9"/>
+    <circle cx="120" cy="0" r="24" fill="#ffffff" fill-opacity="1"/>
+    
+    <!-- 中心节点高亮 -->
+    <circle cx="120" cy="0" r="32" fill="none" stroke="#ffffff" stroke-width="3" stroke-opacity="0.5"/>
+  </g>
+  
+  <!-- 待办徽章 - 右下角 -->
+  <g transform="translate(740, 740)">
+    <!-- 徽章背景 -->
+    <circle cx="0" cy="0" r="100" fill="url(#badgeGradient)"/>
+    
+    <!-- 徽章边框 -->
+    <circle cx="0" cy="0" r="100" fill="none" stroke="#ffffff" stroke-width="6"/>
+    
+    <!-- 对勾符号 -->
+    <path 
+      d="M -40 0 L -10 30 L 50 -30" 
+      fill="none" 
+      stroke="#ffffff" 
+      stroke-width="16" 
+      stroke-linecap="round" 
+      stroke-linejoin="round"
+    />
+  </g>
+  
+  <!-- 细节装饰 - 小光点 -->
+  <circle cx="240" cy="240" r="8" fill="#ffffff" fill-opacity="0.4"/>
+  <circle cx="784" cy="240" r="6" fill="#ffffff" fill-opacity="0.3"/>
+  <circle cx="240" cy="784" r="6" fill="#ffffff" fill-opacity="0.3"/>
+  
+  <!-- 
+    使用说明:
+    1. 可在 Adobe Illustrator / Inkscape / Figma 中打开此SVG文件
+    2. 导出为PNG格式（推荐尺寸：256x256, 128x128, 64x64, 32x32, 16x16）
+    3. 使用在线工具（如 icoconvert.com）转换为ICO格式
+    4. 在 PyQt5 应用中使用 QIcon 加载图标
+    
+    集成示例:
+    from PyQt5.QtGui import QIcon
+    app.setWindowIcon(QIcon('assets/icons/app-icon-64.png'))
+  -->
+</svg>

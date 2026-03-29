@@ -1,0 +1,87 @@
+﻿============================================================
+Phase 8 集成测试
+============================================================
+
+[测试] 数据库迁移...
+python : 2026-03-24 23:23:36 - database - INFO - Database path: :memory:
+所在位置 行:1 字符: 26
++ ... -mail-assistant; python tests/test_phase8_integration.py 2>&1 | Out-F ...
++                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (2026-03-24 23:2... path: :memory::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+2026-03-24 23:23:36 - database - INFO - Database initialized successfully
+[PASS] 数据库迁移测试通过
+
+[测试] 分配CRUD操作...
+2026-03-24 23:23:36 - database - INFO - Database path: :memory:
+2026-03-24 23:23:36 - database - INFO - Database initialized successfully
+2026-03-24 23:23:36 - todo_assignment_repo - INFO - Created assignment: todo 1 from 1 to 2
+2026-03-24 23:23:36 - todo_assignment_repo - INFO - Assignment 1 accepted
+2026-03-24 23:23:36 - todo_assignment_repo - INFO - Created assignment: todo 2 from 1 to 2
+2026-03-24 23:23:36 - todo_assignment_repo - INFO - Assignment 2 rejected
+[PASS] 分配CRUD测试通过
+
+[测试] 提醒CRUD操作...
+2026-03-24 23:23:36 - database - INFO - Database path: :memory:
+2026-03-24 23:23:36 - database - INFO - Database initialized successfully
+2026-03-24 23:23:36 - reminder_repo - INFO - Created reminder: type=due_date, time=2026-03-25 00:23:36
+2026-03-24 23:23:36 - reminder_repo - INFO - Created reminder: type=custom, time=2026-03-24 23:22:36
+[PASS] 提醒CRUD测试通过
+
+[测试] 自动截止提醒...
+2026-03-24 23:23:36 - database - INFO - Database path: :memory:
+2026-03-24 23:23:36 - database - INFO - Database initialized successfully
+2026-03-24 23:23:36 - reminder_repo - INFO - Created reminder: type=due_date, time=2026-03-24 23:50:00
+2026-03-24 23:23:36 - reminder_repo - INFO - Created 1 auto reminders for todo 1
+[PASS] 自动截止提醒测试通过
+
+[测试] 分配服务...
+2026-03-24 23:23:36 - database - INFO - Database path: C:\Users\57512\AppData\Local\Temp\tmpvr4p4r0l.db
+2026-03-24 23:23:36 - database - INFO - Database initialized successfully
+2026-03-24 23:23:36 - department_repo - INFO - Created department: 测试研发部-独立 (ID: 1)
+2026-03-24 23:23:36 - team_member_repo - INFO - Created team member: 张三-独立 <zhang_independent@example.com> (ID: 1)
+2026-03-24 23:23:36 - team_member_repo - INFO - Created team member: 李四-独立 <li_independent@example.com> (ID: 2)
+2026-03-24 23:23:36 - todo_assignment_repo - INFO - Created assignment: todo 1 from 1 to 2
+2026-03-24 23:23:36 - reminder_repo - INFO - Created reminder: type=assignment, time=2026-03-24 23:23:36
+2026-03-24 23:23:36 - assignment_service - INFO - Assigned todo 1 to member 2
+2026-03-24 23:23:36 - todo_assignment_repo - INFO - Assignment 1 accepted
+2026-03-24 23:23:36 - reminder_repo - INFO - Created reminder: type=assignment, time=2026-03-24 23:23:36
+[PASS] 分配服务测试通过
+
+[测试] 提醒服务...
+2026-03-24 23:23:36 - database - INFO - Database path: C:\Users\57512\AppData\Local\Temp\tmp_q8gvjdz.db
+2026-03-24 23:23:36 - database - INFO - Database initialized successfully
+2026-03-24 23:23:36 - department_repo - INFO - Created department: 测试部门-独立 (ID: 1)
+2026-03-24 23:23:36 - team_member_repo - INFO - Created team member: 张三-独立 <test_independent@example.com> (ID: 1)
+2026-03-24 23:23:36 - reminder_repo - INFO - Created reminder: type=custom, time=2026-03-25 01:23:36
+2026-03-24 23:23:36 - reminder_repo - INFO - Created reminder: type=custom, time=2026-03-24 23:18:36
+2026-03-24 23:23:36 - reminder_service - WARNING - plyer not installed, notification not sent
+2026-03-24 23:23:36 - reminder_service - INFO - Triggered reminder 2: 过期提醒
+[PASS] 提醒服务测试通过
+
+[测试] 完整工作流...
+2026-03-24 23:23:36 - database - INFO - Database path: C:\Users\57512\AppData\Local\Temp\tmpo3r9jgh5.db
+2026-03-24 23:23:36 - database - INFO - Database initialized successfully
+2026-03-24 23:23:36 - department_repo - INFO - Created department: 产品部-测试 (ID: 1)
+2026-03-24 23:23:36 - team_member_repo - INFO - Created team member: 王经理-测试 <wang_test@example.com> (ID: 1)
+2026-03-24 23:23:36 - team_member_repo - INFO - Created team member: 李四-测试 <li_test@example.com> (ID: 2)
+  步骤1: 创建部门和成员
+  步骤2: 创建待办
+2026-03-24 23:23:36 - todo_assignment_repo - INFO - Created assignment: todo 1 from 1 to 2
+2026-03-24 23:23:36 - reminder_repo - INFO - Created reminder: type=assignment, time=2026-03-24 23:23:36
+2026-03-24 23:23:36 - reminder_repo - INFO - Created reminder: type=due_date, time=2026-03-24 23:50:00
+2026-03-24 23:23:36 - reminder_repo - INFO - Created 1 auto reminders for todo 1
+2026-03-24 23:23:36 - assignment_service - INFO - Assigned todo 1 to member 2
+  步骤3: 分配待办给成员
+  步骤4: 自动创建2个提醒
+2026-03-24 23:23:36 - todo_assignment_repo - INFO - Assignment 1 accepted
+2026-03-24 23:23:36 - reminder_repo - INFO - Created reminder: type=assignment, time=2026-03-24 23:23:36
+  步骤5: 成员接受分配
+  步骤6: 验证分配历史
+  步骤7: 验证提醒统计 - 2个待发送
+[PASS] 完整工作流测试通过
+
+============================================================
+测试完成: 7 通过, 0 失败
+============================================================

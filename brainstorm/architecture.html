@@ -1,0 +1,126 @@
+<h2>Foxmail邮件智能助手 - 完整设计方案</h2>
+<p class="subtitle">技术架构 · 核心模块 · 数据流</p>
+
+<div style="background:#f8f9fa;border-radius:12px;padding:20px;margin-bottom:24px;font-family:monospace;font-size:13px;line-height:1.8;">
+<pre style="margin:0;">
+┌──────────────────────────────────────────────────────────────────┐
+│                         PyQt5 主窗口 (MainWindow)                  │
+├──────────────┬─────────────────────────┬────────────────────────┤
+│  邮件列表面板  │      摘要详情面板         │      待办面板           │
+│  EmailList   │    SummaryDetail        │    TodoPanel           │
+├──────────────┴─────────────────────────┴────────────────────────┤
+│                                                                │
+│   ┌──────────────┐    ┌──────────────┐    ┌──────────────┐   │
+│   │  IMAP客户端   │    │   AI处理器    │    │  日历同步器   │   │
+│   │ IMAPClient   │───▶│ AIProcessor  │    │ CalendarSync │   │
+│   │              │    │              │    │              │   │
+│   │ • 连接管理    │    │ • 本地Ollama │    │ • Windows    │   │
+│   │ • 邮件拉取    │    │ • 云端API    │    │   日历API    │   │
+│   │ • 时间过滤    │    │ • 摘要生成    │    │              │   │
+│   │ • 字段解析    │    │ • 待办提取    │    │              │   │
+│   └──────┬───────┘    └──────┬───────┘    └──────┬───────┘   │
+│          │                   │                   │            │
+│          ▼                   ▼                   ▼            │
+│   ┌─────────────────────────────────────────────────────┐    │
+│   │                  SQLite 数据库 (Database)             │    │
+│   │  emails | summaries | todos | settings | users     │    │
+│   └─────────────────────────────────────────────────────┘    │
+│                              │                               │
+└──────────────────────────────┼───────────────────────────────┘
+                               │
+                    ┌──────────┴──────────┐
+                    │   外部服务接口        │
+                    ├─────────────────────┤
+                    │ • IMAP邮件服务器     │
+                    │ • Ollama (本地)     │
+                    │ • 云端AI API        │
+                    │   (文心/千问/DeepSeek)│
+                    │ • Windows日历       │
+                    └─────────────────────┘
+</pre>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:20px;">
+  <div style="background:white;border:1px solid #e0e0e0;border-radius:10px;padding:16px;">
+    <div style="font-size:24px;margin-bottom:8px;">📧</div>
+    <h3 style="color:#667eea;margin-bottom:8px;">IMAP邮件模块</h3>
+    <ul style="font-size:13px;color:#555;line-height:1.8;padding-left:16px;">
+      <li>IMAPClient：连接管理、邮箱选择</li>
+      <li>EmailFetcher：邮件拉取、分页、增量同步</li>
+      <li>EmailParser：MIME解析、HTML/纯文本提取</li>
+      <li>时间范围过滤：自定义起始/结束时间</li>
+      <li>文件夹支持：收件箱、自定义文件夹</li>
+    </ul>
+  </div>
+
+  <div style="background:white;border:1px solid #e0e0e0;border-radius:10px;padding:16px;">
+    <div style="font-size:24px;margin-bottom:8px;">🤖</div>
+    <h3 style="color:#667eea;margin-bottom:8px;">AI处理模块</h3>
+    <ul style="font-size:13px;color:#555;line-height:1.8;padding-left:16px;">
+      <li>AIBridge：统一接口、模型切换</li>
+      <li>OllamaProcessor：本地模型调用</li>
+      <li>CloudAIProcessor：云端API接入</li>
+      <li>PromptEngine：摘要/待办提取提示词</li>
+      <li>结果缓存：避免重复处理同一封邮件</li>
+    </ul>
+  </div>
+
+  <div style="background:white;border:1px solid #e0e0e0;border-radius:10px;padding:16px;">
+    <div style="font-size:24px;margin-bottom:8px;">📋</div>
+    <h3 style="color:#667eea;margin-bottom:8px;">待办管理模块</h3>
+    <ul style="font-size:13px;color:#555;line-height:1.8;padding-left:16px;">
+      <li>TodoStore：本地SQLite CRUD</li>
+      <li>TodoEditor：添加/编辑/删除/标记完成</li>
+      <li>CalendarSync：Windows日历同步</li>
+      <li>截止日期：从邮件中自动识别</li>
+      <li>优先级：自动/手动设置</li>
+    </ul>
+  </div>
+</div>
+
+<div style="margin-top:20px;background:white;border:1px solid #e0e0e0;border-radius:10px;padding:16px;">
+  <h3 style="color:#667eea;margin-bottom:12px;">📊 数据库设计（SQLite）</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;font-size:13px;">
+    <div style="background:#f3e5f5;padding:10px;border-radius:8px;">
+      <strong style="color:#7b1fa2;">emails</strong><br>
+      id, uid, subject, sender, date,<br>
+      body_text, body_html, folder,<br>
+      processed, created_at
+    </div>
+    <div style="background:#e3f2fd;padding:10px;border-radius:8px;">
+      <strong style="color:#1565c0;">summaries</strong><br>
+      id, email_id, summary_text,<br>
+      todos_json, model_used,<br>
+      tokens_used, created_at
+    </div>
+    <div style="background:#e8f5e9;padding:10px;border-radius:8px;">
+      <strong style="color:#2e7d32;">todos</strong><br>
+      id, summary_id, content,<br>
+      completed, due_date, priority,<br>
+      calendar_event_id, created_at
+    </div>
+    <div style="background:#fff3e0;padding:10px;border-radius:8px;">
+      <strong style="color:#e65100;">settings</strong><br>
+      id, email_account, imap_server,<br>
+      ai_provider, ai_api_key, ollama_url,<br>
+      sync_interval, auto_process
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:16px;background:white;border:1px solid #e0e0e0;border-radius:10px;padding:16px;">
+  <h3 style="color:#667eea;margin-bottom:12px;">🔄 核心工作流</h3>
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;">
+    <span style="background:#667eea;color:white;padding:6px 14px;border-radius:20px;">1. 邮箱配置</span>
+    <span style="color:#999;">→</span>
+    <span style="background:#667eea;color:white;padding:6px 14px;border-radius:20px;">2. IMAP连接</span>
+    <span style="color:#999;">→</span>
+    <span style="background:#667eea;color:white;padding:6px 14px;border-radius:20px;">3. 邮件拉取</span>
+    <span style="color:#999;">→</span>
+    <span style="background:#667eea;color:white;padding:6px 14px;border-radius:20px;">4. AI处理</span>
+    <span style="color:#999;">→</span>
+    <span style="background:#667eea;color:white;padding:6px 14px;border-radius:20px;">5. 摘要展示</span>
+    <span style="color:#999;">→</span>
+    <span style="background:#667eea;color:white;padding:6px 14px;border-radius:20px;">6. 待办管理</span>
+  </div>
+</div>
