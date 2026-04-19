@@ -91,3 +91,7 @@ package-lock.json
 # 编译输出
 *.pyc
 *.pyo
+
+# 开发工具配置
+.workbuddy/
+memory/
